@@ -14,7 +14,6 @@ struct Node
     Book data;
     Node *left;
     Node *right;
-    int height;
 };
 
 class BSTBook
@@ -23,7 +22,6 @@ private:
     Node *root;
 
 public:
-    Node *getRoot() { return root; }
     BSTBook()
     {
         root = nullptr;
@@ -75,48 +73,7 @@ public:
             else
                 current = current->right;
         }
-        int greater = -1;
-        int min = root->data.id;
-       current = root;
-       parent = nullptr;
-        while (current != 0)
-        {
-            parent = current;
-
-            if (current->data.id > id)
-            {
-                if (greater == -1 || current->data.id < greater)
-                    greater = current->data.id;
-                current = current->left;
-            }
-            else
-            {
-                if (current->data.id > min)
-                    min = current->data.id;
-                current = current->right;
-            }
-        }
-        cout << "closest id is: " << greater << " " << min;
-
         return nullptr;
-    }
-
-    void search(Node *root, int start, int end) // search in range
-    {
-        if (root == nullptr)
-            return;
-        if (root->data.id > start)
-            search(root->left, start, end);
-        if (root->data.id >= start && root->data.id <= end)
-        {
-            cout << "------------------------\n";
-            cout << "ID     : " << root->data.id << "\n";
-            cout << "Title  : " << root->data.title << "\n";
-            cout << "Author : " << root->data.author << "\n";
-            cout << "------------------------\n\n";
-        }
-        if (root->data.id < end)
-            search(root->right, start, end);
     }
     void deleteBook(int id)
     {
@@ -185,7 +142,6 @@ public:
         visit(root);
         display(root->right);
     }
-
     void visit(Node *root)
     {
         cout << "------------------------\n";
@@ -195,10 +151,76 @@ public:
         cout << "------------------------\n\n";
     }
 };
+class AVLBook
+{
+private:
+    Node *root;
+    AVLBook()
+    {
+        root = nullptr;
+    }
+
+public:
+    
 
 
 
+Node *search(int id)
+    {
+
+        Node *current = root;
+        Node *parent = nullptr;
+        while (current != 0)
+        {
+            parent = current;
+            if (current->data.id == id)
+            {
+                return current;
+            }
+            else if (current->data.id > id)
+                current = current->left;
+            else
+                current = current->right;
+        }
+        return nullptr;
+    }
+};
 int main()
 {
+    BSTBook tree;
 
+    // INSERT
+    tree.insert({10, "C++ Basics", "Bjarne"});
+    tree.insert({5, "DSA", "Mark"});
+    tree.insert({20, "Algorithms", "CLRS"});
+    tree.insert({3, "OOP", "Ali"});
+    tree.insert({7, "Pointers", "John"});
+    tree.insert({15, "Graphs", "Tarjan"});
+    tree.insert({30, "AI", "Russell"});
+
+    cout << "\n=== AFTER INSERT ===\n";
+    tree.display();
+
+    // SEARCH
+    cout << "\n=== SEARCH 7 ===\n";
+    Node *res = tree.search(7);
+    if (res)
+        cout << "Found: " << res->data.title << "\n";
+    else
+        cout << "Not found\n";
+
+    // DELETE LEAF
+    cout << "\n=== DELETE 3 (leaf) ===\n";
+    tree.deleteBook(3);
+    tree.display();
+
+    // DELETE ONE CHILD
+    cout << "\n=== DELETE 5 (one child) ===\n";
+    tree.deleteBook(5);
+    tree.display();
+
+    // DELETE TWO CHILDREN
+    cout << "\n=== DELETE 10 (two children) ===\n";
+    tree.deleteBook(10);
+    tree.display();
 }
