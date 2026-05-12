@@ -150,6 +150,52 @@ public:
         cout << "Author : " << root->data.author << "\n";
         cout << "------------------------\n\n";
     }
+
+    void printrange(Node* root , int minID, int maxID){
+        if(root == nullptr) return;
+
+        if (root->data.id > minID){
+            printrange(root->left, minID, maxID);
+        }
+
+        if(root->data.id >= minID && root->data.id <= maxID){
+            visit(root);
+        }
+
+        if(root->data.id < maxID){
+            printrange(root->right, minID, maxID);
+        }
+    }
+
+    void printINrange(int minID, int maxID){
+        printrange(root,minID,maxID);
+    }
+
+    Node* closest(Node* root, int target){
+        Node* closest = root;
+        while(root!= nullptr){
+            if(abs(root->data.id - target) < abs(closest->data.id - target)){
+                closest = root;
+            }
+
+            if(root->data.id == target)
+                return root;
+            if(root->data.id > target){
+                root = root->left;
+            }
+            else
+                root = root->right;
+        }
+        return closest;
+    }
+
+    void closestSearch(int target){
+        Node* close = closest(root, target);
+        if (close == nullptr)
+            cout << "Tree is empty\n";
+        else
+            visit(close);
+    }
 };
 class AVLBook
 {
@@ -209,6 +255,14 @@ int main()
     else
         cout << "Not found\n";
 
+    // print in rane 
+    cout << "\n=== print in range(5,20) ===\n";
+    tree.printINrange(5,20);
+
+    //closestsearch
+    cout << "\n=== closest book ID from 5 ===\n";
+    tree.closestSearch(5);
+
     // DELETE LEAF
     cout << "\n=== DELETE 3 (leaf) ===\n";
     tree.deleteBook(3);
@@ -223,4 +277,11 @@ int main()
     cout << "\n=== DELETE 10 (two children) ===\n";
     tree.deleteBook(10);
     tree.display();
+
+    
+    //closestsearch
+    cout << "\n=== closest book ID from 5 ===\n";
+    tree.closestSearch(5);
+
+    
 }
