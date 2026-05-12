@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/VSWorkspaceState.json
+/.vs/treesandheap/v17/DocumentLayout.json
+/.vs/treesandheap/v17/Browse.VC.opendb
+/.vs/slnx.sqlite
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/CodeChunks.db
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/CodeChunks.db-shm
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/CodeChunks.db-wal
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/SemanticSymbols.db
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/SemanticSymbols.db-shm
+/.vs/treesandheap/CopilotIndices/17.14.1661.41761/SemanticSymbols.db-wal
+/.vs/treesandheap/FileContentIndex/c2f23a29-db7d-406a-b37e-f36d886302c7.vsidx
+/.vs/ProjectSettings.json
+/.vs/treesandheap/FileContentIndex/f0b69301-a7d7-434f-adc0-ef5f65f88ad1.vsidx
+/.vs/treesandheap/v17/.wsuo
+/.vs/treesandheap/v17/Browse.VC.db
+/.vs/treesandheap/v17/Browse.VC.db-shm
+/.vs/treesandheap/v17/Browse.VC.db-wal
+/.vs/treesandheap/v17/ipch/AutoPCH/65a5e646b520df32/PROBLEM1.ipch
+/.vs/treesandheap/FileContentIndex/c5657ae1-2920-4ce7-aca2-1927443353d0.vsidx
+/.vs/treesandheap/FileContentIndex/7356cc5e-da8f-41eb-92fe-c89058ae9940.vsidx
+/.vs/treesandheap/FileContentIndex/f185000d-7ef3-49cb-ada5-c84d9102701d.vsidx
