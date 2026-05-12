@@ -23,3 +23,8 @@
 /.vs/treesandheap/FileContentIndex/c5657ae1-2920-4ce7-aca2-1927443353d0.vsidx
 /.vs/treesandheap/FileContentIndex/7356cc5e-da8f-41eb-92fe-c89058ae9940.vsidx
 /.vs/treesandheap/FileContentIndex/f185000d-7ef3-49cb-ada5-c84d9102701d.vsidx
+/.vs/treesandheap/FileContentIndex/b6ef01f8-5f76-43d5-8d4a-a16ddb2a7128.vsidx
+/.gitignore
+/.vs/slnx.sqlite-journal
+*.vsidx
+*.json
